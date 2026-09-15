@@ -77,8 +77,8 @@ export default function Navbar() {
     },
   ];
 
-  // Hide the Navbar entirely on Staff, Admin, Dashboard and Auth pages to maximize portal workspace
-  const isPortalOrAuthRoute = ['/staff', '/admin', '/login', '/signup', '/dashboard'].some(
+  // Hide the Navbar entirely on Staff, Admin, Dashboard, Auth, and Prescription pages
+  const isPortalOrAuthRoute = ['/staff', '/admin', '/login', '/signup', '/dashboard', '/prescription'].some(
     path => pathname?.startsWith(path)
   );
 
