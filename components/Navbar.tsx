@@ -77,10 +77,10 @@ export default function Navbar() {
     },
   ];
 
-  // Hide the Navbar entirely on Staff, Admin, Dashboard, Auth, and Prescription pages
+  // Hide the Navbar entirely on Staff, Admin, Dashboard, Auth, Prescription, and Home root pages
   const isPortalOrAuthRoute = ['/staff', '/admin', '/login', '/signup', '/dashboard', '/prescription'].some(
     path => pathname?.startsWith(path)
-  );
+  ) || pathname === '/';
 
   if (isPortalOrAuthRoute) {
     return null;

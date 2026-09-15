@@ -1,9 +1,5 @@
-import PrescriptionKitPage, { generateMetadata as kitMetadata } from './prescription/[slug]/page';
+import { redirect } from 'next/navigation';
 
-export async function generateMetadata() {
-  return kitMetadata({ params: Promise.resolve({ slug: 'mens-wellness-kit' }) });
-}
-
-export default async function Home() {
-  return <PrescriptionKitPage params={Promise.resolve({ slug: 'mens-wellness-kit' })} />;
+export default function Home() {
+  redirect('/prescription/mens-wellness-kit');
 }
