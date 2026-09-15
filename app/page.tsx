@@ -1,37 +1,9 @@
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import DoctorProfile from "@/components/DoctorProfile";
-import Achievements from "@/components/Achievements";
-import RegisteredCertified from "@/components/RegisteredCertified";
-import DoctorPanel from "@/components/DoctorPanel";
-import ClinicGallery from "@/components/ClinicGallery";
-import WhyChoose from "@/components/WhyChoose";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import BusinessInfo from "@/components/BusinessInfo";
-import Contact from "@/components/Contact";
-import AIAssistant from "@/components/AIAssistant";
-import PopupManager from "@/components/PopupManager";
+import PrescriptionKitPage, { generateMetadata as kitMetadata } from './prescription/[slug]/page';
 
-export default function Home() {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Hero />
-      <Services />
-      <DoctorProfile />
-      <Achievements />
-      <RegisteredCertified />
-      <DoctorPanel />
-      <ClinicGallery />
-      <WhyChoose />
-      <Testimonials />
-      <FAQ />
-      <BusinessInfo />
-      <Contact />
-      
-      {/* Floating Interactive Overlays */}
-      <AIAssistant />
-      <PopupManager />
-    </div>
-  );
+export async function generateMetadata() {
+  return kitMetadata({ params: Promise.resolve({ slug: 'mens-wellness-kit' }) });
+}
+
+export default async function Home() {
+  return <PrescriptionKitPage params={Promise.resolve({ slug: 'mens-wellness-kit' })} />;
 }
